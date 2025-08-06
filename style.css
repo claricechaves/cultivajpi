@@ -3,7 +3,7 @@ body {
     margin: 0;
     padding-top: 120px; /* por causa da navbar fixa */
     font-family: Arial, sans-serif;
-    background: url('imagens/grama.png') repeat;
+   
     background-size: 64px 64px;
     color: #3e2723; /* marrom escuro */
     line-height: 1.6;
@@ -263,3 +263,4 @@ nav button:hover {
 .canteiro img {
     width: 70%;
 }
+ 
