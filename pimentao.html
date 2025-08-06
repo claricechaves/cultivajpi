@@ -8,8 +8,15 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <header><h1>🌱 Horta Interativa</h1></header>
-
+    <header>
+        <h1><a href="index.html">🌱 Horta Interativa</a></h1>
+        <nav>
+            <button onclick="abrirPagina('index.html')">🏡 Início</button>
+            <button onclick="abrirPagina('info.html')">📚 Info</button>
+            <button onclick="abrirPagina('receitas.html')">🍽️ Receitas</button>
+            <button onclick="abrirPagina('sobre.html')">ℹ️ Sobre</button>
+        </nav>
+</header>
     <main>
         <div class="painel">
             <h2>🫑 Pimentão</h2>
@@ -30,15 +37,6 @@
             </section>
         </div>
     </main>
-
-    <footer>
-        <nav>
-            <button onclick="abrirPagina('index.html')">🏡 Início</button>
-            <button onclick="abrirPagina('info.html')">📚 Info</button>
-            <button onclick="abrirPagina('receitas.html')">🍽️ Receitas</button>
-            <button onclick="abrirPagina('sobre.html')">ℹ️ Sobre</button>
-        </nav>
-    </footer>
 
     <script src="script.js"></script>
 </body>

@@ -13,6 +13,10 @@ body {
 h1, h2, h3 {
     font-family: 'Press Start 2P', cursive;
     color: #2e7d32; /* verde escuro */
+} 
+h1 a{
+        color: #3e2723; /* marrom escuro */
+
 }
 
 /* Navbar estilizada */
