@@ -1,163 +1,99 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Horta Interativa</title>
-    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
-    <style>
-        /* Estilo das plaquinhas flutuantes */
-        .cercado {
-            position: relative;
-            margin-bottom: 60px;
-        }
-
-        .placa-canteiro {
-            position: absolute;
-            top: -30px;
-            left: 50%;
-            transform: translateX(-50%);
-            display: inline-block;
-            background: #deb887;
-            border: 3px solid #8b5a2b;
-            border-radius: 6px;
-            padding: 6px 12px;
-            font-family: 'Press Start 2P', cursive;
-            font-size: 12px;
-            color: #3b2f2f;
-            text-align: center;
-            box-shadow: 2px 2px 0 #654321;
-            z-index: 10;
-        }
-
-        /* Grid 2x3 para os canteiros */
-        .horta-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            grid-template-rows: repeat(2, auto);
-            gap: 10px;
-            justify-content: center;
-        }
-
-        /* Centraliza imagens dentro dos canteiros */
-        .canteiro img {
-            width: 100%;
-            height: auto;
-            display: block;
-        }
-
-        /* Tooltip do nome da planta */
-        .canteiro {
-            position: relative;
-        }
-
-        .canteiro::after {
-            content: attr(data-nome);
-            position: absolute;
-            bottom: -20px;
-            left: 50%;
-            transform: translateX(-50%);
-            background: rgba(0,0,0,0.7);
-            color: white;
-            padding: 2px 6px;
-            font-size: 10px;
-            border-radius: 4px;
-            opacity: 0;
-            transition: opacity 0.2s, transform 0.2s;
-            pointer-events: none;
-            white-space: nowrap;
-        }
-
-        .canteiro:hover::after {
-            opacity: 1;
-            transform: translateX(-50%) translateY(-2px);
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Horta Interativa</title>
+<link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <header>
-        <h1>🌱 Cultiva JPI</h1>
-    </header>
 
-    <main>
-        <div class="painel">
-            <h2>🌻 Bem-vindo à Horta Interativa!</h2>
-            <p>Clique em um canteiro para aprender sobre o vegetal.</p>
-        </div>
+<header>
+<h1>🌱 Cultiva JPI</h1>
+</header>
 
-        <div class="horta-container">
-            <!-- Canteiro de Verduras -->
-            <div class="cercado">
-                <div class="placa-canteiro">Verduras</div>
-                <div class="horta-grid">
-                    <div class="canteiro" data-nome="Alface" onclick="abrirPagina('alface.html')">
-                        <img src="imagens/alface.png" alt="Alface">
-                    </div>
-                    <div class="canteiro" data-nome="Couve" onclick="abrirPagina('couve.html')">
-                        <img src="imagens/couve.png" alt="Couve">
-                    </div>
-                    <div class="canteiro" data-nome="Couve-flor" onclick="abrirPagina('couveflor.html')">
-                        <img src="imagens/couveflor.png" alt="Couve-flor">
-                    </div>
-                    <div class="canteiro" data-nome="Brócolis" onclick="abrirPagina('brocolis.html')">
-                        <img src="imagens/brocolis.png" alt="Brócolis">
-                    </div>
-                    <div class="canteiro" data-nome="Cebolinha" onclick="abrirPagina('cebolinha.html')">
-                        <img src="imagens/cebolinha.png" alt="Cebolinha">
-                    </div>
-                    <div class="canteiro" data-nome="Manjericão" onclick="abrirPagina('manjericao.html')">
-                        <img src="imagens/manjericao.png" alt="Manjericão">
-                    </div>
-                </div>
+<main>
+<div class="painel">
+<h2>🌻 Bem-vindo à Horta Interativa!</h2>
+<p>Clique em um canteiro para aprender sobre o vegetal.</p>
+</div>
+
+<div class="horta-container">
+    <div class="cercado">
+        <div class="placa-canteiro">Verduras</div>
+        <div class="horta-grid">
+            <div class="canteiro" data-nome="Alface" onclick="abrirPagina('alface.html')">
+                <img src="imagens/alface.png" alt="Alface">
             </div>
-
-            <!-- Canteiro de Legumes -->
-            <div class="cercado">
-                <div class="placa-canteiro">Legumes</div>
-                <div class="horta-grid">
-                    <div class="canteiro" data-nome="Berinjela" onclick="abrirPagina('berinjela.html')">
-                        <img src="imagens/berinjela.png" alt="Berinjela">
-                    </div>
-                    <div class="canteiro" data-nome="Batata-doce" onclick="abrirPagina('batatadoce.html')">
-                        <img src="imagens/batatadoce.png" alt="Batata-doce">
-                    </div>
-                    <div class="canteiro" data-nome="Cenoura" onclick="abrirPagina('cenoura.html')">
-                        <img src="imagens/cenoura.png" alt="Cenoura">
-                    </div>
-                    <div class="canteiro" data-nome="Batata" onclick="abrirPagina('batata.html')">
-                        <img src="imagens/batata.png" alt="Batata">
-                    </div>
-                    <div class="canteiro" data-nome="Tomate" onclick="abrirPagina('tomate.html')">
-                        <img src="imagens/tomate.png" alt="Tomate">
-                    </div>
-                    <div class="canteiro" data-nome="Abóbora" onclick="abrirPagina('abobora.html')">
-                        <img src="imagens/abobora.png" alt="Abóbora">
-                    </div>
-                </div>
+            <div class="canteiro" data-nome="Couve" onclick="abrirPagina('couve.html')">
+                <img src="imagens/couve.png" alt="Couve">
+            </div>
+            <div class="canteiro" data-nome="Couve-flor" onclick="abrirPagina('couveflor.html')">
+                <img src="imagens/couveflor.png" alt="Couve-flor">
+            </div>
+            <div class="canteiro" data-nome="Brócolis" onclick="abrirPagina('brocolis.html')">
+                <img src="imagens/brocolis.png" alt="Brócolis">
+            </div>
+            <div class="canteiro" data-nome="Cebolinha" onclick="abrirPagina('cebolinha.html')">
+                <img src="imagens/cebolinha.png" alt="Cebolinha">
+            </div>
+            <div class="canteiro" data-nome="Manjericão" onclick="abrirPagina('manjericao.html')">
+                <img src="imagens/manjericao.png" alt="Manjericão">
             </div>
         </div>
+    </div>
 
-        <!-- Menu estilo referência -->
-        <section class="menu-cartas">
-            <div class="carta" onclick="abrirPagina('info.html')">
-                <img src="imagens/info.png" alt="Informações">
-                <h3>Informações de Cultivo</h3>
-                <p>Dicas para cuidar e cultivar sua horta.</p>
+    <div class="cercado">
+        <div class="placa-canteiro">Legumes</div>
+        <div class="horta-grid">
+            <div class="canteiro" data-nome="Berinjela" onclick="abrirPagina('berinjela.html')">
+                <img src="imagens/berinjela.png" alt="Berinjela">
             </div>
-            <div class="carta" onclick="abrirPagina('receitas.html')">
-                <img src="imagens/receitas.png" alt="Receitas">
-                <h3>Receitas</h3>
-                <p>Pratos deliciosos usando os vegetais da horta.</p>
+            <div class="canteiro" data-nome="Batata-doce" onclick="abrirPagina('batatadoce.html')">
+                <img src="imagens/batatadoce.png" alt="Batata-doce">
             </div>
-            <div class="carta" onclick="abrirPagina('sobre.html')">
-                <img src="imagens/sobre.png" alt="Curiosidades">
-                <h3>Curiosidades</h3>
-                <p>Fatos divertidos sobre agricultura urbana.</p>
+            <div class="canteiro" data-nome="Cenoura" onclick="abrirPagina('cenoura.html')">
+                <img src="imagens/cenoura.png" alt="Cenoura">
             </div>
-        </section>
-    </main>
+            <div class="canteiro" data-nome="Batata" onclick="abrirPagina('batata.html')">
+                <img src="imagens/batata.png" alt="Batata">
+            </div>
+            <div class="canteiro" data-nome="Tomate" onclick="abrirPagina('tomate.html')">
+                <img src="imagens/tomate.png" alt="Tomate">
+            </div>
+            <div class="canteiro" data-nome="Abóbora" onclick="abrirPagina('abobora.html')">
+                <img src="imagens/abobora.png" alt="Abóbora">
+            </div>
+        </div>
+    </div>
+</div>
 
-    <script src="script.js"></script>
+<section class="menu-cartas">
+    <div class="carta" onclick="abrirPagina('info.html')">
+        <img src="imagens/info.png" alt="Informações">
+        <h3>Informações de Cultivo</h3>
+        <p>Dicas para cuidar e cultivar sua horta.</p>
+    </div>
+    <div class="carta" onclick="abrirPagina('receitas.html')">
+        <img src="imagens/receitas.png" alt="Receitas">
+        <h3>Receitas</h3>
+        <p>Pratos deliciosos usando os vegetais da horta.</p>
+    </div>
+    <div class="carta" onclick="abrirPagina('sobre.html')">
+        <img src="imagens/sobre.png" alt="Curiosidades">
+        <h3>Sobre</h3>
+        <p>Saiba mais sobre o nosso projeto.</p>
+    </div>
+</section>
+
+<script>
+function abrirPagina(url) {
+    window.location.href = url;
+}
+</script>
+
+</main>
 </body>
 </html>
+

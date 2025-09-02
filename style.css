@@ -1,50 +1,24 @@
 /* =======================
-   Fundo e textos
+   Geral
 ======================= */
 body {
     margin: 0;
-    padding-top: 120px; /* espaço para a navbar fixa */
+    padding-top: 120px;
     font-family: Arial, sans-serif;
-    color: #3e2723; /* marrom escuro */
+    color: #3e2723;
     line-height: 1.6;
-
     background: url("imagens/background.png") no-repeat center center fixed;
     background-size: cover;
-    image-rendering: pixelated; /* mantém o estilo retrô */
+    image-rendering: pixelated;
 }
 
-/* Fonte pixel só para títulos */
 h1, h2, h3 {
     font-family: 'Press Start 2P', cursive;
-    color: #2e7d32; /* verde escuro */
-} 
-
-h1 a {
-    color: #3e2723; /* marrom escuro */
+    color: #2e7d32;
 }
 
 /* =======================
-   Navbar estilizada
-======================= */
-nav button {
-    font-family: 'Press Start 2P', cursive;
-    font-size: 12px;
-    padding: 10px 14px;
-    margin: 5px;
-    background-color: #fff59d; 
-    border: 3px solid #fbc02d;
-    border-radius: 8px;
-    cursor: pointer;
-    transition: transform 0.2s, background-color 0.3s;
-}
-
-nav button:hover {
-    background-color: #fdd835;
-    transform: scale(1.1);
-}
-
-/* =======================
-   Header como placa de madeira
+   Header
 ======================= */
 header {
     background: #d7a86e;
@@ -59,18 +33,10 @@ header {
     box-shadow: 6px 6px 0px #5c4033;
 }
 
-header h1 {
-    margin: 0;
-    font-size: 20px;
-    color: #4e342e;
-}
-
-nav {
-    margin-top: 15px;
-}
+header h1 { margin: 0; font-size: 20px; color: #4e342e; }
 
 /* =======================
-   Horta 2x3 com cercado
+   Horta
 ======================= */
 .horta-container {
     display: flex;
@@ -80,24 +46,23 @@ nav {
 }
 
 .cercado {
-    position: relative; /* referência para a placa flutuante e tooltip */
-    background: url("imagens/terra.png") repeat;
+    position: relative;
+    margin: 20px;
     padding: 15px;
+    background: url("imagens/terra.png") repeat;
     border: 6px solid #6d4c41;
     border-radius: 10px;
     box-shadow: 8px 8px 16px rgba(0,0,0,0.4);
-    margin: 20px;
 }
 
-/* Plaquinha estilo Stardew */
+/* Plaquinhas em cima */
 .placa-canteiro {
     position: absolute;
-    top: -30px;
+    top: -40px;
     left: 50%;
     transform: translateX(-50%);
-    display: inline-block;
-    background: #deb887; 
-    border: 3px solid #8b5a2b; 
+    background: #deb887;
+    border: 3px solid #8b5a2b;
     border-radius: 6px;
     padding: 6px 12px;
     font-family: 'Press Start 2P', cursive;
@@ -105,93 +70,86 @@ nav {
     color: #3b2f2f;
     text-align: center;
     box-shadow: 2px 2px 0 #654321;
-    z-index: 10;
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
-}
-
-.placa-canteiro:hover {
-    transform: translateX(-50%) translateY(-2px) rotate(-2deg);
-    box-shadow: 4px 4px 0 #654321;
+    z-index: 5;
 }
 
 /* Grid 2x3 */
 .horta-grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    grid-template-rows: repeat(2, auto);
+    grid-template-columns: repeat(3, 100px);
+    grid-template-rows: repeat(2, 100px);
     gap: 10px;
-    justify-items: center;
+    justify-content: center;
 }
 
-/* =======================
-   Canteiros e plantas
-======================= */
+/* Canteiros */
 .canteiro {
     width: 100px;
     height: 100px;
-    background: rgba(255, 255, 255, 0.05);
     border: 3px solid #4e342e;
     border-radius: 6px;
     display: flex;
     align-items: center;
     justify-content: center;
     cursor: pointer;
+    position: relative;
+    background: rgba(255,255,255,0.05);
     transition: transform 0.2s, box-shadow 0.2s;
-    position: relative; /* para tooltip */
 }
 
 .canteiro:hover {
     transform: scale(1.08);
-    box-shadow: 0px 0px 12px rgba(255, 255, 200, 0.6);
+    box-shadow: 0px 0px 12px rgba(255,255,200,0.6);
 }
 
 .canteiro img {
-    width: 70%;
+    width: 80%;
     height: auto;
-    image-rendering: pixelated;
-    transition: transform 0.2s ease, filter 0.2s ease;
-    opacity: 0;
-    transform: translateY(10px);
-    animation: aparecer 0.5s forwards;
+    z-index: 10;
+    position: relative;
 }
 
-.canteiro img:hover {
-    transform: scale(1.1);
-    filter: brightness(1.1);
-}
-
-/* Tooltip com o nome da planta */
+/* Tooltip embaixo */
 .canteiro::after {
     content: attr(data-nome);
     position: absolute;
-    bottom: -20px;
+    bottom: -18px;
     left: 50%;
     transform: translateX(-50%);
-    background: rgba(0,0,0,0.7);
-    color: white;
-    padding: 2px 6px;
-    font-size: 10px;
-    border-radius: 4px;
+    background: #fffde7;
+    color: #3e2723;
+    padding: 2px 5px;
+    font-size: 9px;
+    font-family: 'Press Start 2P', cursive;
+    border: 1px solid #8d6e63;
+    border-radius: 3px;
+    box-shadow: 1px 1px 2px rgba(0,0,0,0.2);
     opacity: 0;
-    transition: opacity 0.2s;
     pointer-events: none;
     white-space: nowrap;
+    z-index: 5;
+    transition: opacity 0.2s;
 }
 
-.canteiro:hover::after {
-    opacity: 1;
-}
-
-/* Animação entrada */
-@keyframes aparecer {
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
+.canteiro:hover::after { opacity: 1; }
 
 /* =======================
-   Cartas de Info, Receitas, Curiosidades
+   Painel
+======================= */
+.painel {
+    background-color: rgba(255, 248, 220, 0.9);
+    border: 4px solid #8d6e63;
+    border-radius: 16px;
+    padding: 25px;
+    margin: 20px auto;
+    max-width: 800px;
+    box-shadow: 4px 4px 8px rgba(0,0,0,0.2);
+}
+
+.painel h2 { color: #33691e; margin-bottom: 20px; }
+
+/* =======================
+   Menu Cartas
 ======================= */
 .menu-cartas {
     display: flex;
@@ -209,94 +167,64 @@ nav {
     width: 220px;
     text-align: center;
     transition: transform 0.15s ease-in-out, background-color 0.2s;
-    image-rendering: pixelated;
 }
 
-.menu-cartas .carta img {
-    width: 48px;
-    height: 48px;
-    display: block;
-    margin: 0 auto 8px auto;
-    image-rendering: pixelated;
-}
-
-.menu-cartas .carta h3 {
-    font-family: 'Press Start 2P', cursive;
-    font-size: 14px;
-    color: #2e4600;
-    margin-bottom: 8px;
-}
-
-.menu-cartas .carta p {
-    font-size: 10px;
-    color: #333;
-}
-
-.menu-cartas .carta:hover {
-    transform: scale(1.05);
-    background-color: #f9e4b7;
-    cursor: pointer;
-}
-
-/* =======================
-   Painel interno
-======================= */
-.painel {
-    background-color: rgba(255, 248, 220, 0.9);
-    border: 4px solid #8d6e63;
-    border-radius: 16px;
-    padding: 25px;
-    margin: 20px auto;
-    max-width: 800px;
-    box-shadow: 4px 4px 8px rgba(0,0,0,0.2);
-}
-
-.painel h2 {
-    margin-bottom: 20px;
-    color: #33691e;
-}
-
-.painel section {
-    margin-bottom: 25px;
-}
-
-.painel h3 {
-    margin-bottom: 10px;
-    color: #558b2f;
-}
+.menu-cartas .carta img { width: 48px; height: 48px; margin-bottom: 8px; }
+.menu-cartas .carta h3 { font-family: 'Press Start 2P', cursive; font-size: 14px; color: #2e4600; margin-bottom: 8px; }
+.menu-cartas .carta p { font-size: 10px; color: #333; }
 
 /* =======================
    Responsividade
 ======================= */
 @media (max-width: 600px) {
-    .horta-grid {
-        grid-template-columns: repeat(2, 1fr);
-    }
-    .canteiro {
-        width: 80px;
-        height: 80px;
-    }
+    .horta-grid { grid-template-columns: repeat(2, 100px); }
+    .canteiro { width: 80px; height: 80px; }
+    .canteiro img { width: 70%; }
 }
-.canteiro::after {
-    content: attr(data-nome);
-    position: absolute;
-    top: -28px; /* mais acima do que antes */
-    left: 50%;
-    transform: translateX(-50%);
-    background: rgba(0,0,0,0.7);
-    color: #fff;
-    padding: 1px 4px;
-    font-size: 8px;
+/* Estilo de plaquinha para links de receita */
+.link-receita {
+    display: inline-block;
+    background-color: #fffde7; /* amarelinho estilo papel */
+    color: #3e2723; /* marrom escuro */
     font-family: 'Press Start 2P', cursive;
-    border-radius: 2px;
-    opacity: 0;
-    transition: opacity 0.15s ease;
-    pointer-events: none;
-    white-space: nowrap;
-    z-index: 1000; /* ainda mais acima */
+    font-size: 10px;
+    padding: 4px 8px;
+    border: 1px solid #8d6e63;
+    border-radius: 4px;
+    text-decoration: none;
+    transition: transform 0.2s, box-shadow 0.2s;
+    margin: 2px 0;
 }
 
-.canteiro:hover::after {
-    opacity: 1;
+.link-receita:hover {
+    transform: scale(1.05);
+    box-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+    background-color: #f9f3d2; /* um amarelinho levemente diferente no hover */
+}
+.painel a {
+    text-decoration: none;
+    color: #3e2723; /* marrom escuro */
+    background: #fffde7; /* amarelinho claro estilo papel */
+    border: 1px solid #8d6e63;
+    border-radius: 3px;
+    padding: 2px 6px;
+    font-family: 'Press Start 2P', cursive;
+    font-size: 10px;
+    box-shadow: 1px 1px 2px rgba(0,0,0,0.2);
+    transition: transform 0.1s, background-color 0.2s;
 }
 
+.painel a:hover {
+    background-color: #f9f3d7;
+    transform: scale(1.05);
+}
+.img-vegetal-direita {
+    width: 200px;             /* imagem um pouco maior */
+    height: auto;
+    float: right;             /* flutua à direita do texto */
+    margin: 0 0 10px 15px;    /* espaço entre imagem e texto */
+    border: 3px solid #8b5a2b;
+    border-radius: 6px;
+    box-shadow: 2px 2px 6px rgba(0,0,0,0.3);
+    image-rendering: auto;
+}
